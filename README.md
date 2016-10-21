@@ -20,3 +20,13 @@ $scope.$broadcast(eventName, args);
 $scope.on: is how we listen for these events.
 
 $scope.$on(eventName, function(event, args) {})
+
+Cancel an event:
+
+$scope.$on(eventName, function(event, data) {
+    event.stopPropagation();
+});
+
+Inform the siblings:
+
+$scope.$parent.$broadcast(eventName, args);

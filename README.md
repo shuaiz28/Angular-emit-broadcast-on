@@ -6,7 +6,6 @@ $scope.$emit:
     When you want that $scope and all its parents and $rootScope to hear the event.
 
 $scope.$emit(eventName, args);
-
 args: optional 1 or more, will be passed onto the event listeners.
 
 $scope.$broadcast: 

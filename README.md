@@ -5,7 +5,8 @@ $scope.$emit:
     will stop propagating if one of the listeners cancels it.
     When you want that $scope and all its parents and $rootScope to hear the event.
 
-$emit(eventName, args);
+$scope.$emit(eventName, args);
+
 args: optional 1 or more, will be passed onto the event listeners.
 
 $scope.$broadcast: 
@@ -14,7 +15,10 @@ $scope.$broadcast:
     the event cannot be canceled.
     When you want that $scope and all its children to hear the event.
 
-$broadcast(eventName, args);
+$scope.$broadcast(eventName, args);
+
 args: optional 1 or more, will be passed onto the event listeners.
 
 $scope.on: is how we listen for these events.
+
+$scope.$on(eventName, function(event, args) {})

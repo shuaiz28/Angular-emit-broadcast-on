@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular $emit $broadcast $on</title>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+	<script src='main.js'></script>
+	<style type="text/css">
+		div {
+		    border: 1px solid #428cba;
+		    margin: 5px;
+		    padding: 20px;
+		}
+	</style>
+</head>
+<body ng-app='myApp' >
+	<div ng-controller='rootCtrl'>
+		Root scope
+	    <p>emitted message: {{emitMessage}}</p>
+		<div ng-controller='middleCtrl'>
+			Middle scope<br />
+			<input type='text' ng-model='input' placeholder='input some message'/>
+			<button ng-click='emitEvent()'>$emit</button>
+			<button ng-click='broadcastEvent()'>$broadcast</button>
+			<div>
+				<div ng-controller='childCtrl'>
+					Child scope
+					<p>broadcasted message: {{broadcastMessage}}</p>
+				</div>
+				<div ng-controller='childCtrl'>
+					Child scope
+					<p>broadcasted message: {{broadcastMessage}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

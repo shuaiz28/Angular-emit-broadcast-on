@@ -22,3 +22,25 @@ app.controller('childCtrl', function($scope) {
   	$scope.broadcastMessage = data.msg;
   });
 });
+
+
+app.controller('rootCtrl2', function($scope) {
+  $scope.emitMessage = '';
+  $scope.$on('emitEvent', function(event, data) {
+    $scope.emitMessage = data.msg;
+  });
+});
+
+app.controller('middleCtrl2', function($scope) {
+  $scope.emitMessage = '';
+  $scope.$on('emitEvent', function(event, data) {
+    event.stopPropagation();
+    $scope.emitMessage = data.msg;
+  });
+});
+
+app.controller('childCtrl2', function($scope) {
+  $scope.emitEvent = function() {
+    $scope.$emit('emitEvent', {msg: $scope.input});
+  }
+});

@@ -12,7 +12,8 @@
 		}
 	</style>
 </head>
-<body ng-app='myApp' >
+<body ng-app='myApp'>
+	<h3>Angular $emit $broadcast $on</h3>
 	<div ng-controller='rootCtrl'>
 		Root scope
 	    <p>emitted message: {{emitMessage}}</p>
@@ -34,6 +35,20 @@
 		</div>
 	</div>
 
-
+	<h3>Cancel an event in $emit using stopPropagation()</h3>
+	<p>Add event.stopPropagation() in Middle scope, so Root scope cannot get emitted message from Child scope.</p>
+	<div ng-controller='rootCtrl2'>
+		Root scope
+	  	<p>emitted message: {{emitMessage}}</p>
+		<div ng-controller='middleCtrl2'>
+			Middle scope
+      		<p>emitted message: {{emitMessage}}</p>
+			<div ng-controller='childCtrl2'>
+				Child scope
+				<input type='text' ng-model='input' placeholder='input some message'/>
+				<button ng-click='emitEvent()'>$emit</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
